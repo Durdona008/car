@@ -2,14 +2,14 @@ const router = require('express').Router();
 const {
   register, verifyEmail, login, refreshToken,
   logout, forgotPassword, resetPassword, changePassword,
-} = require('../controllers/authController');
+} = require('../controller/auth.controller');
 const { authenticate } = require('../middlewares/auth');
 const validate = require('../middlewares/validate');
 const {
   registerSchema, loginSchema, verifySchema,
   forgotPasswordSchema, resetPasswordSchema,
   changePasswordSchema, refreshTokenSchema,
-} = require('../validators/authValidator');
+} = require('../validators/auth.validator');
 
 router.post('/register',        validate(registerSchema),        register);
 router.post('/verify',          validate(verifySchema),          verifyEmail);
